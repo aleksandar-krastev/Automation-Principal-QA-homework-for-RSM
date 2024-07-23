@@ -9,12 +9,10 @@ public class DuplicatesCounter {
 		HashMap<Integer, Boolean> occurences = new HashMap<>();
 		int numberOfDuplicate = 0;
 		for (int i = 0; i < intArray.length; i++) {
-			Boolean isDuplicate = occurences.get(intArray[i]);
+			Boolean isDuplicate = occurences.putIfAbsent(intArray[i], Boolean.FALSE);
 			if (Boolean.FALSE.equals(isDuplicate)) {
 				occurences.put(intArray[i], Boolean.TRUE);
 				numberOfDuplicate++;
-			} else if (isDuplicate == null) {
-				occurences.put(intArray[i], Boolean.FALSE);
 			}
 		}
 

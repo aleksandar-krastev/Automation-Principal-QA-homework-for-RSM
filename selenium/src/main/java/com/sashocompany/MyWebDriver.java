@@ -2,7 +2,9 @@ package com.sashocompany;
 
 import java.time.Duration;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class MyWebDriver {
@@ -16,15 +18,22 @@ public class MyWebDriver {
 		}
 		WebDriver webDriver = new ChromeDriver();
 
-		webDriver.manage().timeouts().implicitlyWait(Duration.ofMillis(1000));
+		// Wait up to 1 second for element to appear.
+		webDriver.manage().timeouts().implicitlyWait(Duration.ofMillis(2000));
 
 		webDriver.get("https://www.amazon.co.uk/");
 		this.driver = webDriver;
 	}
 
-	// A constructor with webdriver name as parameter is possible for parametrization.
+	// A constructor with webdriver name as parameter is possible for parameterization.
 	
 	public void closeDriver() {
 		this.driver.close();
 	}
+	
+	public WebElement findElement(By by) {
+		return this.driver.findElement(by);
+	}
+	
+
 }

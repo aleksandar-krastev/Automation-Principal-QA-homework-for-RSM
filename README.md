@@ -76,6 +76,7 @@ The integers 1 and 2 both occur more than once, so we return 2 as our answer.
 
 
 AddJUnit tests covering the code
+
 2. Selenium:
 Use Java, Selenium, and Chrome to Automate the following:
 Navigate to amazon.co.uk - verify the page is correct and loaded

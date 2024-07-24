@@ -35,5 +35,8 @@ public class MyWebDriver {
 		return this.driver.findElement(by);
 	}
 	
-
+	public String getURL() {
+		return this.driver.getCurrentUrl();
+	}
+		
 }

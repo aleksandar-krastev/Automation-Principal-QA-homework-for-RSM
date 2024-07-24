@@ -18,8 +18,8 @@ public class DuplicatesCounter {
 
 		return numberOfDuplicate;
 	}
-
-	public static void main(String[] args) throws CounterException {
+	
+	public static int[] createIntArrayFromStandardInput() throws CounterException {
 		try (Scanner in = new Scanner(System.in)) {
 			int arrayLength = in.nextInt();
 			if (arrayLength > 1000 || arrayLength <= 0) {
@@ -33,9 +33,14 @@ public class DuplicatesCounter {
 				}
 				intArray[i] = nextInt;
 			}
-			System.out.println(countDuplicates(intArray));
+			return intArray;
 		} catch (InputMismatchException e) {
 			throw new CounterException("Doesn't match integer pattern.");
 		}
+	}
+
+	public static void main(String[] args) throws CounterException {
+		int[] intArray = createIntArrayFromStandardInput();
+		System.out.println(countDuplicates(intArray));
 	}
 }

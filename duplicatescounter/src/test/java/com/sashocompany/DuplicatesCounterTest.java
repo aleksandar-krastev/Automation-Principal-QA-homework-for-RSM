@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class DuplicatesCounterTest {
 
 	@Test
-	void shouldReturn0() {
+	void testCountDuplicatesReturn0WhenThereArentAnyDuplicates() {
 		int[] testData = new int[] { 1, 2, 3, 4, 9 };
 		assertEquals(0, DuplicatesCounter.countDuplicates(testData));
 		testData = new int[] { 1 };
@@ -15,7 +15,7 @@ class DuplicatesCounterTest {
 	}
 
 	@Test
-	void shouldReturn1() {
+	void testCountDuplicatesReturn1WhenThereIsOnlyOneDuplicate() {
 		int[] testData = new int[] { 1, 2, 2, 2, 4, 3, 9 };
 		assertEquals(1, DuplicatesCounter.countDuplicates(testData));
 		testData = new int[] { 1, 1 };
@@ -23,7 +23,7 @@ class DuplicatesCounterTest {
 	}
 
 	@Test
-	void shouldReturn2() {
+	void testCountDuplicatesReturn2WhenThereAre2Duplicates() {
 		int[] testData = new int[] { 1, 1, 2, 2, 2, 4, 3, 9 };
 		assertEquals(2, DuplicatesCounter.countDuplicates(testData));
 		testData = new int[] { 1, 1, 9, 9 };
@@ -33,7 +33,7 @@ class DuplicatesCounterTest {
 	}
 
 	@Test
-	void shouldReturn3() {
+	void testCountDuplicatesReturn3WhenThereAre3Duplicates() {
 		int[] testData = new int[] { 1, 1, 2, 2, 2, 3, 4, 3, 9 };
 		assertEquals(3, DuplicatesCounter.countDuplicates(testData));
 		testData = new int[] { 1, 1, 9, 9, 1000, 1000 };

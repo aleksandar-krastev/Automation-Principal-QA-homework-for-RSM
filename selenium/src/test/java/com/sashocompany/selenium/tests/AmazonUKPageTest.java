@@ -1,4 +1,4 @@
-package com.sashocompany.tests;
+package com.sashocompany.selenium.tests;
 
 import java.util.HashMap;
 

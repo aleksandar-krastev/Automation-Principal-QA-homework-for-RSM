@@ -1,4 +1,4 @@
-package com.sashocompany.tests;
+package com.sashocompany.selenium.tests;
 
 import java.util.HashMap;
 
@@ -6,11 +6,11 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.By;
 
-import com.sashocompany.MyWebDriver;
-import com.sashocompany.pages.AmazonUKBasketPage;
-import com.sashocompany.pages.AmazonUKHomePage;
-import com.sashocompany.pages.AmazonUKItemPage;
-import com.sashocompany.pages.AmazonUKSearchResultPage;
+import com.sashocompany.selenium.MyWebDriver;
+import com.sashocompany.selenium.pages.AmazonUKBasketPage;
+import com.sashocompany.selenium.pages.AmazonUKHomePage;
+import com.sashocompany.selenium.pages.AmazonUKItemPage;
+import com.sashocompany.selenium.pages.AmazonUKSearchResultPage;
 
 public class AmazonUKPageBase {
 	private MyWebDriver myWebDriver;

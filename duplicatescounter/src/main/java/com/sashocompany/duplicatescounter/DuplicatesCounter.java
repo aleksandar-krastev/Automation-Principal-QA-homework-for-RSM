@@ -1,4 +1,4 @@
-package com.sashocompany;
+package com.sashocompany.duplicatescounter;
 
 import java.util.HashMap;
 import java.util.InputMismatchException;

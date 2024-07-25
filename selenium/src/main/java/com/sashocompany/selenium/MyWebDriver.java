@@ -1,4 +1,4 @@
-package com.sashocompany;
+package com.sashocompany.selenium;
 
 import java.time.Duration;
 import java.util.List;

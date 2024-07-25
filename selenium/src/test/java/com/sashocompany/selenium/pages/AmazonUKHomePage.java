@@ -1,11 +1,11 @@
-package com.sashocompany.pages;
+package com.sashocompany.selenium.pages;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import com.sashocompany.MyWebDriver;
+import com.sashocompany.selenium.MyWebDriver;
 
 public class AmazonUKHomePage {
 	private static final String BASKET_XPATH = "//*[@id='nav-cart']";

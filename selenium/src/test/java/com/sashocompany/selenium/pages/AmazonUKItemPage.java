@@ -1,4 +1,4 @@
-package com.sashocompany.pages;
+package com.sashocompany.selenium.pages;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -10,7 +10,7 @@ import java.util.HashMap;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import com.sashocompany.MyWebDriver;
+import com.sashocompany.selenium.MyWebDriver;
 
 public class AmazonUKItemPage {
 

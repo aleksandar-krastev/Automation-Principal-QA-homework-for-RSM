@@ -1,4 +1,4 @@
-package com.sashocompany;
+package com.sashocompany.duplicatescounter;
 
 public class CounterException extends Exception {
 	private static final long serialVersionUID = 955758926615044274L;

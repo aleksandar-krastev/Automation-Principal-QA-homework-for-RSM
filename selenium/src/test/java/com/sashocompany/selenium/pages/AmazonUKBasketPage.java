@@ -1,4 +1,4 @@
-package com.sashocompany.pages;
+package com.sashocompany.selenium.pages;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import com.sashocompany.MyWebDriver;
+import com.sashocompany.selenium.MyWebDriver;
 
 public class AmazonUKBasketPage {
 	private static final String THIS_WILL_BE_A_GIFT_XPATH = "//input[@type='checkbox']";

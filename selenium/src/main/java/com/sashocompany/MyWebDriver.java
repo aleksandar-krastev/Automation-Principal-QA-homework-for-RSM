@@ -18,7 +18,7 @@ public class MyWebDriver {
 
 	private static String chromeDriverLocation = "C:\\chromedriver-win64\\chromedriver.exe";
 
-	MyWebDriver() {
+	public MyWebDriver() {
 		// System property webdriver.chrome.driver can be set from the build system.
 		if (System.getProperty("webdriver.chrome.driver") == null) {
 			System.setProperty("webdriver.chrome.driver", chromeDriverLocation);
@@ -37,10 +37,17 @@ public class MyWebDriver {
 	// parameterization.
 
 	/**
-	 * Closes the driver.
+	 * Quits the driver.
 	 **/
-	public void closeDriver() {
-		this.driver.close();
+	public void quitDriver() {
+		this.driver.quit();
+	}
+	
+	/**
+	 * Deletes cache.
+	 **/
+	public void deleteCache() {
+		this.driver.manage().deleteAllCookies();	
 	}
 
 	/**
@@ -50,7 +57,7 @@ public class MyWebDriver {
 	 * meaningful message which includes some human readable information of the
 	 * element that you are looking for.
 	 * 
-	 * @param By Mechanism used to locate elements within a document.
+	 * @param by Mechanism used to locate elements within a document.
 	 * @return null or the element matching the By criteria
 	 **/
 	public WebElement findElement(By by) {
@@ -61,6 +68,10 @@ public class MyWebDriver {
 		}
 	}
 	
+	/**
+	 * @param by Mechanism used to locate elements within a document.
+	 * @return list of elements matching the By criteria
+	 **/
 	public List<WebElement> findElements(By by) {
 		return this.driver.findElements(by);
 	}
@@ -71,7 +82,15 @@ public class MyWebDriver {
 	    WebElement element = findElement(by);
 	    actions.moveToElement(element).click().build().perform();
 	}
-
+	
+	/**
+	 * 
+	 * @param by Mechanism used to locate elements within a document.
+	 */
+	public void waitForElementToDisapear(By by) {
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
+	}
+	
 	/**
 	 * @return current URL
 	 **/
@@ -85,4 +104,5 @@ public class MyWebDriver {
 	public void navigateToUrl(String url) {
 		this.driver.navigate().to(url);
 	}
+
 }

@@ -1,4 +1,4 @@
-package com.sashocompany;
+package com.sashocompany.tests;
 
 import java.util.HashMap;
 
@@ -13,7 +13,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 class AmazonUKPageTest extends AmazonUKPageBase {
 
 	@ParameterizedTest
-	@ValueSource(strings = { "Harry Potter and the Cursed Child - Parts One and Two" })
+	@ValueSource(strings = { "Harry Potter and the Cursed Child" })
 	void whenSearchForAnItemThenItShowsResultWithAllAvailableCopyOptions(String title) {
 		searchFor(title);
 		assertFirstResult(title);
@@ -34,7 +34,7 @@ class AmazonUKPageTest extends AmazonUKPageBase {
 
 	@ParameterizedTest
 	@Disabled("Not implemented")
-	@ValueSource(strings = { "Harry Potter and the Cursed Child - Parts One and Two" })
+	@ValueSource(strings = { "Harry Potter and the Cursed Child" })
 	void whenNavigateToTheFirstResultForAnItemThenItShowsProperContent(String title) {
 		/*
 		 * #AdditionalChecks
@@ -54,7 +54,7 @@ class AmazonUKPageTest extends AmazonUKPageBase {
 
 	@ParameterizedTest
 	@CsvSource({
-			"https://www.amazon.co.uk/Harry-Potter-Cursed-Child-Playscript/dp/0751565369/ref=sr_1_1?keywords=Harry+Potter+and+the+Cursed+Child+-+Parts+One+and+Two, Harry Potter and the Cursed Child - Parts One and Two" })
+			"https://www.amazon.co.uk/Harry-Potter-Cursed-Child-Playscript/dp/0751565369/ref=sr_1_1?keywords=Harry+Potter+and+the+Cursed+Child, Harry Potter and the Cursed Child" })
 	void whenAddItemToTheBasketAndNavigateToTheBasketThenItIsPresentThere(String url, String title) {
 		navigateToUrl(url);
 		String paperbackPrice = getPaperbackPrice();
@@ -64,5 +64,16 @@ class AmazonUKPageTest extends AmazonUKPageBase {
 		assertBasket(title, paperbackPrice);
 		// #AdditionalChecks Quantity is 1, Delete, Save for Later, See more like, Share links are available. 
 		clickThisWillBeAGift();
+	}
+	
+	@ParameterizedTest
+	@ValueSource(strings = { "Harry Potter and the Cursed Child" })
+	void whenSearchForAnItemAndAddToBasketThenTheTitleAndThePriceAreCorrect(String title) {
+		searchFor(title);
+		HashMap<String, String> typesOfCoverAndPrices = getPricesOfPaperBackHardCoverAndKindleEdition();
+		clickFirstPaperbackResult();
+		addToBasket();
+		navigateToBasket();
+		assertBasket(title, typesOfCoverAndPrices.get("Paperback"));
 	}
 }

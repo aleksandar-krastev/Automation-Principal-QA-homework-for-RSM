@@ -42,12 +42,12 @@ public class MyWebDriver {
 	public void quitDriver() {
 		this.driver.quit();
 	}
-	
+
 	/**
 	 * Deletes cache.
 	 **/
 	public void deleteCache() {
-		this.driver.manage().deleteAllCookies();	
+		this.driver.manage().deleteAllCookies();
 	}
 
 	/**
@@ -67,7 +67,7 @@ public class MyWebDriver {
 			return null;
 		}
 	}
-	
+
 	/**
 	 * @param by Mechanism used to locate elements within a document.
 	 * @return list of elements matching the By criteria
@@ -75,22 +75,22 @@ public class MyWebDriver {
 	public List<WebElement> findElements(By by) {
 		return this.driver.findElements(by);
 	}
-	
+
 	public void click(By by) {
-	    Actions actions = new Actions(this.driver);
-	    wait.until(ExpectedConditions.elementToBeClickable(by));
-	    WebElement element = findElement(by);
-	    actions.moveToElement(element).click().build().perform();
+		Actions actions = new Actions(this.driver);
+		wait.until(ExpectedConditions.elementToBeClickable(by));
+		WebElement element = findElement(by);
+		actions.moveToElement(element).click().build().perform();
 	}
-	
+
 	/**
 	 * 
 	 * @param by Mechanism used to locate elements within a document.
 	 */
 	public void waitForElementToDisapear(By by) {
-	    wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
 	}
-	
+
 	/**
 	 * @return current URL
 	 **/

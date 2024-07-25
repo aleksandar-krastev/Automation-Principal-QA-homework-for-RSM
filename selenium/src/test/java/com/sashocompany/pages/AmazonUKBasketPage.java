@@ -15,10 +15,15 @@ public class AmazonUKBasketPage {
 	private static final String SUBTOTAL_CHECKOUT_PRICE_XPATH = "//*[@id='sc-subtotal-amount-buybox']/span";
 	private static final String SUBTOTAL_ACTIVE_CART_PRICE_XPATH = "//*[@id='sc-subtotal-amount-activecart']/span";
 
-
+	/**
+	 * Asserts whether the basket has items and the intermediate and final price.
+	 * 
+	 * @param myWebDriver    Instance of MyWebDriver.
+	 * @param title          Title of the item.
+	 * @param paperbackPrice Price of the item.
+	 */
 	public static void assertBasket(MyWebDriver myWebDriver, String title, String paperbackPrice) {
-		WebElement basketContainsTitle = myWebDriver
-				.findElement(By.xpath("//*[contains(text(),'" + title + "')]"));
+		WebElement basketContainsTitle = myWebDriver.findElement(By.xpath("//*[contains(text(),'" + title + "')]"));
 		WebElement basketContainsPrice = myWebDriver
 				.findElement(By.xpath("//*[contains(text(),'" + paperbackPrice + "')]"));
 		WebElement subtotalCheckoutPrice = myWebDriver.findElement(By.xpath(SUBTOTAL_CHECKOUT_PRICE_XPATH));
@@ -34,7 +39,12 @@ public class AmazonUKBasketPage {
 				() -> assertEquals(paperbackPrice, subtotalActiveCartPrice.getAttribute("innerHTML"),
 						"The price is not the same as the Subtotal Active Cart price."));
 	}
-	
+
+	/**
+	 * Click in the 'Mark as gift' input.
+	 * 
+	 * @param myWebDriver Instance of MyWebDriver.
+	 */
 	public static void clickThisWillBeAGift(MyWebDriver myWebDriver) {
 		WebElement thisWillBeAGift = myWebDriver.findElement(By.xpath(THIS_WILL_BE_A_GIFT_XPATH));
 		assertNotNull(thisWillBeAGift, "There aren't any 'Mark as gift' options.");

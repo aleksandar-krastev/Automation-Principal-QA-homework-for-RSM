@@ -18,17 +18,17 @@ class AmazonUKPageTest extends AmazonUKPageBase {
 		searchFor(title);
 		assertFirstResult(title);
 		/*
-		 * #AdditionalChecks
-		 * Assert for presence of picture, whether it
-		 * says "Instant delivery" under Kindle Edition, whether the delivery date is in
-		 * the future and delivery is to the country where the calls are made from. But
-		 * all of those should be added in assertAll so that the execution doesn't stop on the
-		 * first fail OR new tests are added.
+		 * #AdditionalChecks Assert for presence of picture, whether it says
+		 * "Instant delivery" under Kindle Edition, whether the delivery date is in the
+		 * future and delivery is to the country where the calls are made from. But all
+		 * of those should be added in assertAll so that the execution doesn't stop on
+		 * the first fail OR new tests are added.
 		 */
 		HashMap<String, String> typesOfCoverAndPrices = getPricesOfPaperBackHardCoverAndKindleEdition();
 		clickFirstPaperbackResult();
 		assertTitleAndPrice(title, typesOfCoverAndPrices);
-		// #AdditionalChecks similar checks can be added for the cover types , Hardcover and
+		// #AdditionalChecks similar checks can be added for the cover types , Hardcover
+		// and
 		// KindleEdition.
 	}
 
@@ -37,8 +37,7 @@ class AmazonUKPageTest extends AmazonUKPageBase {
 	@ValueSource(strings = { "Harry Potter and the Cursed Child" })
 	void whenNavigateToTheFirstResultForAnItemThenItShowsProperContent(String title) {
 		/*
-		 * #AdditionalChecks
-		 * This tests whether navigating to
+		 * #AdditionalChecks This tests whether navigating to
 		 * "https://www.amazon.co.uk/Harry-Potter-Cursed-Child-Playscript/dp/0751565369/
 		 * ref=sr_1_1?keywords=Harry+Potter+and+the+Cursed+Child+-+Parts+One+and+Two"
 		 * will lead to a page that has the following information: Title, Prices for the
@@ -59,13 +58,14 @@ class AmazonUKPageTest extends AmazonUKPageBase {
 		navigateToUrl(url);
 		String paperbackPrice = getPaperbackPrice();
 		addToBasket();
-		// #AdditionalChecks Automatically redirected to 'Added to Basket' screen. 
+		// #AdditionalChecks Automatically redirected to 'Added to Basket' screen.
 		navigateToBasket();
 		assertBasket(title, paperbackPrice);
-		// #AdditionalChecks Quantity is 1, Delete, Save for Later, See more like, Share links are available. 
+		// #AdditionalChecks Quantity is 1, Delete, Save for Later, See more like, Share
+		// links are available.
 		clickThisWillBeAGift();
 	}
-	
+
 	@ParameterizedTest
 	@ValueSource(strings = { "Harry Potter and the Cursed Child" })
 	void whenSearchForAnItemAndAddToBasketThenTheTitleAndThePriceAreCorrect(String title) {

@@ -24,6 +24,12 @@ public class AmazonUKSearchResultPage {
 	private static final List<String> TYPES_OF_COVER = Arrays.asList("Paperback", "Hardcover",
 			"Kindle Edition with Audio/Video");
 
+	/**
+	 * Assert that the first result corresponds to the searched item.
+	 * 
+	 * @param myWebDriver Instance of MyWebDriver.
+	 * @param title       Title of the expected result.
+	 */
 	public static void assertFirstResult(MyWebDriver myWebDriver, String title) {
 		WebElement firstSearchResult = myWebDriver.findElement(By.xpath(FIRST_SEARCH_RESULT_XPATH));
 		WebElement firstSearchResultTitle = myWebDriver.findElement(By.xpath(FIRST_SEARCH_RESULT_TITLE_XPATH));
@@ -46,6 +52,11 @@ public class AmazonUKSearchResultPage {
 
 	}
 
+	/**
+	 * Click on the first result paperback link.
+	 * 
+	 * @param myWebDriver Instance of MyWebDriver.
+	 */
 	public static void clickFirstPaperbackResult(MyWebDriver myWebDriver) {
 		WebElement paperBack = myWebDriver
 				.findElement(By.xpath(String.format(FIRST_SEARCH_RESULT_TYPE_XPATH, "Paperback")));
@@ -53,6 +64,12 @@ public class AmazonUKSearchResultPage {
 		paperBack.click();
 	}
 
+	/**
+	 * Get the prices for the different types of cover.
+	 * 
+	 * @param myWebDriver Instance of MyWebDriver.
+	 * @return HashMap with all available prices for the different types of cover.
+	 */
 	public static HashMap<String, String> getPricesOfPaperBackHardCoverAndKindleEdition(MyWebDriver myWebDriver) {
 		HashMap<String, String> typesOfCoverAndPrices = new HashMap<>();
 		for (String cover : TYPES_OF_COVER) {

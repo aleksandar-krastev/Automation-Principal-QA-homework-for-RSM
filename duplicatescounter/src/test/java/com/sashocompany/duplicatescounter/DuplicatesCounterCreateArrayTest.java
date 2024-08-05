@@ -28,17 +28,13 @@ class DuplicatesCounterCreateArrayTest {
 	}
 
 	@Test
-	void testCreateIntArrayFromStandardInputReturnArrayWhenCorrectDataIsEntered() {
+	void testCreateIntArrayFromStandardInputReturnArrayWhenCorrectDataIsEntered() throws CounterException{
 		String testData = "8\r\n1\r\n3\r\n1\r\n4\r\n5\r\n6\r\n3\r\n2\r\n";
 		provideInput(testData);
-		try {
-			int[] expectedArray = new int[] { 1, 3, 1, 4, 5, 6, 3, 2 };
-			int[] actualArray = DuplicatesCounter.createIntArrayFromStandardInput();
-			assertTrue(Arrays.equals(expectedArray, actualArray),
-					"Expected: " + expectedArray + " but received" + actualArray);
-		} catch (CounterException e) {
-			e.printStackTrace();
-		}
+		int[] expectedArray = new int[] { 1, 3, 1, 4, 5, 6, 3, 2 };
+		int[] actualArray = DuplicatesCounter.createIntArrayFromStandardInput();
+		assertTrue(Arrays.equals(expectedArray, actualArray),
+				"Expected: " + expectedArray + " but received" + actualArray);
 	}
 
 	@ParameterizedTest

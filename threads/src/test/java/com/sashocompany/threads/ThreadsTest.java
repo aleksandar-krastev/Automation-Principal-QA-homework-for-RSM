@@ -8,6 +8,7 @@ import java.util.LinkedList;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.jupiter.api.Test;
 
@@ -58,6 +59,8 @@ class ThreadsTest {
 			runnables.add(new ThreadCallable());
 		}
 		executor.invokeAll(runnables);
+		executor.awaitTermination(20000L, TimeUnit.MILLISECONDS);
+		executor.close();
 
 		assertAll("Grouped Assertions for Thread tests",
 				() -> assertTrue(failedCalls <= 300, failedCalls + " requests has failed. Which is more than 30%"),

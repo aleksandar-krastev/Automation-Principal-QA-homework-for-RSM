@@ -1,8 +1,6 @@
 package com.sashocompany.selenium;
 
 import java.time.Duration;
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -16,12 +14,12 @@ public class MyWebDriver {
 	private WebDriver driver;
 	private WebDriverWait wait;
 
-	private static String chromeDriverLocation = "C:\\chromedriver-win64\\chromedriver.exe";
+	private static String CHROME_DRIVER_LOCATION = "C:\\chromedriver-win64\\chromedriver.exe";
 
 	public MyWebDriver() {
 		// System property webdriver.chrome.driver can be set from the build system.
 		if (System.getProperty("webdriver.chrome.driver") == null) {
-			System.setProperty("webdriver.chrome.driver", chromeDriverLocation);
+			System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_LOCATION);
 		}
 		WebDriver webDriver = new ChromeDriver();
 
@@ -68,14 +66,6 @@ public class MyWebDriver {
 		}
 	}
 
-	/**
-	 * @param by Mechanism used to locate elements within a document.
-	 * @return list of elements matching the By criteria
-	 **/
-	public List<WebElement> findElements(By by) {
-		return this.driver.findElements(by);
-	}
-
 	public void click(By by) {
 		Actions actions = new Actions(this.driver);
 		wait.until(ExpectedConditions.elementToBeClickable(by));
@@ -89,13 +79,6 @@ public class MyWebDriver {
 	 */
 	public void waitForElementToDisapear(By by) {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
-	}
-
-	/**
-	 * @return current URL
-	 **/
-	public String getURL() {
-		return this.driver.getCurrentUrl();
 	}
 
 	/**
